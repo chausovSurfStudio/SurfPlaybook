@@ -14,7 +14,7 @@ build:
 	bundle exec fastlane build clean:true
 
 spm_build:
-	swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios12.1-simulator" -Xswiftc "-lswiftUIKit"
+	swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios18.0-simulator" -Xswiftc "-lswiftUIKit"
 	
 example_build:
 	cd Example
@@ -33,9 +33,6 @@ screen:
 alert:
 	# bundle exec generamba gen $(modName) surf_mvp_coordinatable_alert --module_path 'Example/SurfPlaybookExample/Flows/$(flowName)'
 	bundle exec generamba gen $(modName) surf_mvp_coordinatable_alert --module_path 'SurfPlaybook/Playbook/Flows/$(flowName)'
-
-doc:
-	bundle exec jazzy --clean --build-tool-arguments -scheme,SurfPlaybook,-workspace,SurfPlaybook.xcworkspace,-sdk,iphonesimulator --output "docs"
 
 # COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
